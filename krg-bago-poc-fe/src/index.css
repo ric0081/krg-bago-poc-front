@@ -19,6 +19,24 @@ body {
   margin-bottom: 1rem;
 }
 
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.border-card {
+  border: 2px solid #9f177e;
+}
+
+.border-card:hover {
+  background-color: #9f177d0c;
+}
+
+.bago-primary {
+  color: #9f177e;
+}
+
 .p-datatable-header {
   background: #9f177e !important;
 }
