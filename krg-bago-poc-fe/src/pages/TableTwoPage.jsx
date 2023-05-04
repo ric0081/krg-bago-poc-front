@@ -1,4 +1,4 @@
-import TableDataTwo from "../TableDataTwo";
+import TableDataTwo from "../components/TableDataTwo";
 
 export const TableTwoPage = () => {
   return (
