@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // eslint-disable-next-line no-undef
-const BirthdayApiService = process.env.BirthdayApiService;
+const BirthdayApiService = import.meta.env.VITE_BIRTHDAYS_API;
 
 const getEmployeesBirthdays = async () => {
   try {

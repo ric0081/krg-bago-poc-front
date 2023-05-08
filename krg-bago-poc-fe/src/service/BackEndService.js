@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // eslint-disable-next-line no-undef
-const EmployeeApiService = process.env.EmployeeApiService;
+const EmployeeApiService = import.meta.env.VITE_EMPLOYEES_API;
 
 const getEmployees = async () => {
   try {
