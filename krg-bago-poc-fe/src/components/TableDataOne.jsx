@@ -8,7 +8,7 @@ import { Dropdown } from "primereact/dropdown";
 import { MultiSelect } from "primereact/multiselect";
 import { Tag } from "primereact/tag";
 import { TriStateCheckbox } from "primereact/tristatecheckbox";
-import { CustomerService } from "../service/CustomerService";
+import { getEmployees } from "../service/BackEndService";
 
 export default function TableDataOne() {
   const [customers, setCustomers] = useState(null);
@@ -62,11 +62,13 @@ export default function TableDataOne() {
   };
 
   useEffect(() => {
-    CustomerService.getCustomersMedium().then((data) => {
+    const fetchEmployees = async () => {
+      const data = await getEmployees();
       setCustomers(getCustomers(data));
       setLoading(false);
-    });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    };
+    fetchEmployees();
+  }, []);
 
   const getCustomers = (data) => {
     return [...(data || [])].map((d) => {

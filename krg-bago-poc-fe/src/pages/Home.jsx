@@ -1,8 +1,19 @@
+import { useEffect, useState } from "react";
 import cumpleaños from "../assets/happy.svg";
 import { MyCard } from "../components/MyCard";
-import { HappyBirthdayService as data } from "../service/HappyBirthdayService";
+import { getEmployeesBirthdays } from "../service/happyService";
 
 export const Home = () => {
+  const [employees, setEmployees] = useState([]);
+
+  useEffect(() => {
+    const fetchEmployees = async () => {
+      const data = await getEmployeesBirthdays();
+      setEmployees(data);
+    };
+    fetchEmployees();
+  }, []);
+
   return (
     <div style={{ marginLeft: "17.5%" }}>
       <div className='p-col-12 flex flex-column align-items-center justify-content-center'>
@@ -10,7 +21,7 @@ export const Home = () => {
         <h1>Cumpleañeros del mes</h1>
       </div>
       <div className='cards-container'>
-        {data.map((item, index) => (
+        {employees.map((item, index) => (
           <MyCard
             key={index}
             name={item.name}

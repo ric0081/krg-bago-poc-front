@@ -13,7 +13,7 @@ import { MultiSelect } from "primereact/multiselect";
 import { Slider } from "primereact/slider";
 import { Tag } from "primereact/tag";
 import { TriStateCheckbox } from "primereact/tristatecheckbox";
-import { CustomerServiceTwo } from "../service/CustomerServiceTwo";
+import { getEmployees } from "../service/BackEndService";
 
 export default function AdvancedFilterDemo() {
   const [customers, setCustomers] = useState(null);
@@ -60,11 +60,13 @@ export default function AdvancedFilterDemo() {
   };
 
   useEffect(() => {
-    CustomerServiceTwo.getCustomersMedium().then((data) => {
+    const fetchEmployees = async () => {
+      const data = await getEmployees();
       setCustomers(getCustomers(data));
       setLoading(false);
-    });
-    initFilters();
+      initFilters();
+    };
+    fetchEmployees();
   }, []);
 
   const getCustomers = (data) => {
