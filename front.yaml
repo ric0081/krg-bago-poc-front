@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-deployment-bago
+  labels:
+    app: bago-front
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bago-front
+  template:
+    metadata:
+      labels:
+        app: bago-front
+    spec:
+      containers:
+      - name: bago-front
+        image: juanse793/frontbagoimage:v1
+        ports:
+        - containerPort: 80
