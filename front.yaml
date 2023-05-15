@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: bago-front
-        image: juanse793/frontbagoimage:v1
+        image: juanse793/frontbagoimage:latest
         ports:
         - containerPort: 80
