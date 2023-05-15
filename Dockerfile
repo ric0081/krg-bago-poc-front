@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-COPY .env.local .env
+# COPY .env.local .env
 RUN npm run build
 
 FROM nginx:alpine
