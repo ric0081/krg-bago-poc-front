@@ -1,7 +1,7 @@
 pipeline {
   environment{
     USER_CREDENTIAL = credentials('devops')
-    DOCKER_REPOSITORY = 'dockerdev.krugercorp.com'
+    DOCKER_REPOSITORY = 'https://registry.hub.docker.com'
     HELM_REPOSITORY = 'helm-internal'
     PROJECT_NAME = 'krg-bago-frontend'
     DEPLOY_CONTEXT = '/msBagoFrontend/'
@@ -51,6 +51,19 @@ pipeline {
             hostPath:
               path: /var/run/docker.sock
       '''
+    }
+  }
+  stages {
+    stage('Build and publish docker image') {
+      when { expression { true } }
+      steps {
+        container('docker') {
+          sh 'docker build -t juanse793/frontbagoimage .'
+          sh 'docker login $DOCKER_REPOSITORY -u $USER_CREDENTIAL_USR -p $USER_CREDENTIAL_PSW'
+          sh 'docker push $DOCKER_REPOSITORY/kerp/$PROJECT_NAME:$PROJECT_VERSION'
+          sh 'docker rmi $DOCKER_REPOSITORY/kerp/$PROJECT_NAME:$PROJECT_VERSION'
+        }
+      }
     }
   }
 }
