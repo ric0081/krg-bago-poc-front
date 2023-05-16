@@ -60,8 +60,8 @@ pipeline {
         container('docker') {
           sh 'docker build -t juanse793/frontbagoimage .'
           sh 'docker login $DOCKER_REPOSITORY -u $USER_CREDENTIAL_USR -p $USER_CREDENTIAL_PSW'
-          sh 'docker push $DOCKER_REPOSITORY/juanse793/$PROJECT_NAME:$PROJECT_VERSION'
-          sh 'docker rmi $DOCKER_REPOSITORY/juanse793/$PROJECT_NAME:$PROJECT_VERSION'
+          sh 'docker push juanse793/$PROJECT_NAME:$PROJECT_VERSION'
+          sh 'docker rmi juanse793/$PROJECT_NAME:$PROJECT_VERSION'
         }
       }
     }
