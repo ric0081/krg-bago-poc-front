@@ -63,8 +63,8 @@ pipeline {
           // sh 'docker tag imagenprueba $USER_CREDENTIAL_USR/$PROJECT_NAME:$PROJECT_VERSION'
           sh 'docker image ls'
           sh 'docker login $DOCKER_REPOSITORY -u $USER_CREDENTIAL_USR -p $USER_CREDENTIAL_PSW'
-          sh 'docker push $USER_CREDENTIAL_USR/$PROJECT_NAME:$PROJECT_VERSION'
-          sh 'docker rmi $USER_CREDENTIAL_USR/$PROJECT_NAME:$PROJECT_VERSION'
+          sh 'docker push juanse793/frontbagoimage:latest'
+          sh 'docker rmi juanse793/frontbagoimage:latest'
         }
       }
     }
