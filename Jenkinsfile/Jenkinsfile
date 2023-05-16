@@ -3,7 +3,7 @@ pipeline {
     USER_CREDENTIAL = credentials('github-bago-js')
     DOCKER_REPOSITORY = 'https://registry.hub.docker.com'
     HELM_REPOSITORY = 'helm-internal'
-    PROJECT_NAME = 'krg-bago-frontend'
+    PROJECT_NAME = 'frontbagoimage'
     DEPLOY_CONTEXT = '/msBagoFrontend/'
     PROJECT_VERSION = '1.0.1'
   }
@@ -60,7 +60,7 @@ pipeline {
         container('docker') {
           sh 'docker build -t juanse793/frontbagoimage .'
           sh 'docker login $DOCKER_REPOSITORY -u $USER_CREDENTIAL_USR -p $USER_CREDENTIAL_PSW'
-          sh 'docker push $DOCKER_REPOSITORY/kerp/$PROJECT_NAME:$PROJECT_VERSION'
+          sh 'docker push $DOCKER_REPOSITORY/juanse793/$PROJECT_NAME:$PROJECT_VERSION'
           sh 'docker rmi $DOCKER_REPOSITORY/kerp/$PROJECT_NAME:$PROJECT_VERSION'
         }
       }
