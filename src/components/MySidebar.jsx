@@ -14,32 +14,95 @@ export const MySidebar = () => {
         baseZIndex={1000000}
         showCloseIcon={false}
       >
-        <img src={logo} alt='bago' width='100px' style={{ margin: "20px 0" }} />
+        <img src={logo} alt="bago" width="100px" style={{ margin: "20px 0" }} />
         <br />
         <Button
-          type='button'
-          label='Home'
-          icon='pi pi-home'
+          type="button"
+          label="Home"
+          icon="pi pi-home"
           style={{ background: "#9f177e", width: "85%" }}
           onClick={() => navigate("/")}
         />
         <br />
         <br />
         <Button
-          type='button'
-          label='TableDataOne'
-          icon='pi pi-table'
+          type="button"
+          label="Comercial"
+          icon="pi pi-briefcase"
           style={{ background: "#9f177e", width: "85%" }}
           onClick={() => navigate("/table-data-one")}
         />
         <br />
         <br />
         <Button
-          type='button'
-          label='TableDataTwo'
-          icon='pi pi-table'
+          type="button"
+          label="Compras"
+          icon="pi pi-cart-plus"
           style={{ background: "#9f177e", width: "85%" }}
           onClick={() => navigate("/table-data-two")}
+        />
+        <br />
+        <br />
+        <Button
+          type="button"
+          label="Cuentas Clave"
+          icon="pi pi-key"
+          style={{ background: "#9f177e", width: "85%" }}
+          onClick={() => navigate("/cuentas-clave")}
+        />
+        <br />
+        <br />
+        <Button
+          type="button"
+          label="Fichero"
+          icon="pi pi-folder-open"
+          style={{ background: "#9f177e", width: "85%" }}
+          onClick={() => navigate("/cuentas-clave")}
+        />{" "}
+        <br />
+        <br />
+        <Button
+          type="button"
+          label="Formatos de Inversión"
+          icon="pi pi-dollar"
+          style={{ background: "#9f177e", width: "85%" }}
+          onClick={() => navigate("/cuentas-clave")}
+        />{" "}
+        <br />
+        <br />
+        <Button
+          type="button"
+          label="Gerenciales KAM"
+          icon="pi pi-key"
+          style={{ background: "#9f177e", width: "85%" }}
+          onClick={() => navigate("/cuentas-clave")}
+        />{" "}
+        <br />
+        <br />
+        <Button
+          type="button"
+          label="Gestión de Calidad"
+          icon="pi pi-check-square"
+          style={{ background: "#9f177e", width: "85%" }}
+          onClick={() => navigate("/cuentas-clave")}
+        />{" "}
+        <br />
+        <br />
+        <Button
+          type="button"
+          label="Mantenimiento"
+          icon="pi pi-truck"
+          style={{ background: "#9f177e", width: "85%" }}
+          onClick={() => navigate("/cuentas-clave")}
+        />
+        <br />
+        <br />
+        <Button
+          type="button"
+          label="Logout"
+          icon="pi pi-sign-out"
+          style={{ background: "#9f177e", width: "85%" }}
+          onClick={() => navigate("/")}
         />
       </Sidebar>
     </div>

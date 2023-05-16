@@ -12,4 +12,8 @@ export default defineConfig({
     strictPort: true,
     port: 5172,
   },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+  }
 });
