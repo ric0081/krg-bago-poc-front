@@ -59,11 +59,11 @@ pipeline {
       steps {
         container('docker') {
           sh 'docker logout'
-          sh 'docker build -t juanse793/frontbagoimage:latest .'
+          sh 'docker build -t juanse793/frontbagoimage:frontbagoimage .'
           // sh 'docker tag imagenprueba $USER_CREDENTIAL_USR/$PROJECT_NAME:$PROJECT_VERSION'
           sh 'docker image ls'
           sh 'docker login $DOCKER_REPOSITORY -u $USER_CREDENTIAL_USR -p $USER_CREDENTIAL_PSW'
-          sh 'docker image push juanse793/latest'
+          sh 'docker image push juanse793/frontbagoimage:latest'
           sh 'docker rmi juanse793/frontbagoimage:latest'
         }
       }
